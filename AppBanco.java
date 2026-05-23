@@ -22,7 +22,7 @@ public class AppBanco {
                         Thread.sleep(2000);
                         System.out.println("Voce abrira uma conta para kides");
                         Thread.sleep(2000);
-                        System.out.println("Qual seu CPF?");
+                        System.out.println("Qual seu CPF? (6 digitos primeiros)");
                         int cpf=Integer.parseInt(scanner.nextLine());
                         Thread.sleep(2000);
                         System.out.println("Ok conseguimos validar o CPF: "+cpf);
@@ -50,7 +50,7 @@ public class AppBanco {
                         else {System.out.println("Codigo não corresponde!");}
                     }
                     else if(idade>=18){
-                        System.out.println("Qual seu CPF?");
+                        System.out.println("Qual seu CPF? (6 digitos primeiros)");
                         int cpfMaior=Integer.parseInt(scanner.nextLine());
                         Thread.sleep(2000);
                         System.out.println("Ok conseguimos validar o CPF: "+cpfMaior);
@@ -79,7 +79,7 @@ public class AppBanco {
                 else if(criarConta.equalsIgnoreCase("n")){System.out.println("Ok até mais!");}
             }
             else if(perguntaDeentrada.equalsIgnoreCase("s")){
-                System.out.println("Ok digite seu CPF");
+                System.out.println("Ok digite seu CPF (6 digitos primeiros)");
                 Thread.sleep(2000);
                 long cpfLogado=Integer.parseInt(scanner.nextLine());
                 Thread.sleep(2000);
