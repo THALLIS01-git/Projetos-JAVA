@@ -10,7 +10,6 @@ import BANK.operacoes.User;
 
 public class Main {
     public static void main(String[] args) throws Exception{
-        double saldoGeralDoBanco=10000.0;
         System.out.println("Seja bem vindo ao BANK");
         Thread.sleep(2400);
         System.out.println("Voce possui uma conta? s/n");
