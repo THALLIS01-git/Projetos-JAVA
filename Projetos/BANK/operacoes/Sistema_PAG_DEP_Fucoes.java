@@ -24,5 +24,4 @@ public class Sistema_PAG_DEP_Fucoes {
             return false;
         }
     }
-    
 }
