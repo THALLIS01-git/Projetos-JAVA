@@ -93,4 +93,40 @@ Para mitigar isso, o sistema implementa uma **Máquina de Estados de Tempo Discr
 3. **Estouro da Tolerância**: Somente quando `framesSemMao` atinge ou supera o valor de `15`, o sistema assume com convicção matemática que a mão foi removida intencionalmente. O estado `videoAberto` volta a ser falso e o comando de sistema `taskkill /F /IM chrome.exe` é executado de forma limpa pelo `Runtime.getRuntime().exec()`.
 
 ---
+
+## Apêndice: Entendendo o `try` e o `catch` (Tratamento de Exceções)
+
+O **`try`** e o **`catch`** servem para lidar com **erros imprevistos** no código, evitando que o programa trave ou feche inesperadamente na cara do usuário quando algo dá errado. No jargão da programação, chamamos esses erros em tempo de execução de **Exceções** (*Exceptions*).
+
+Para entender a lógica, imagine o `try-catch` como uma **rede de segurança** ou um **plano de contingência**.
+
+---
+
+### A Analogia da Vida Real
+Imagine o fluxo de um cliente que vai ao caixa eletrônico sacar dinheiro:
+
+1. **O fluxo normal (`try`):** Você insere o cartão, digita a senha, o sistema desconta o valor e te entrega as cédulas de dinheiro.
+2. **O imprevisto (*Exception*):** No meio do processo, a internet do banco cai ou as cédulas de papel-moeda do caixa esgotam.
+3. **O plano de contingência (`catch`):** O terminal bancário não pode simplesmente apagar a tela ou travar. Ele precisa capturar essa falha internamente e exibir uma mensagem amigável na tela: *"Sistema indisponível no momento, tente mais tarde"*.
+
+---
+
+### Como funciona na Sintaxe do Código?
+
+A estrutura lógica do Java se divide exatamente nessas duas etapas principais:
+
+```java
+try {
+    // 1. O BLOCO DE TENTATIVA
+    // Aqui fica o código que você DESEJA que funcione perfeitamente, 
+    // mas que corre o risco físico ou lógico de falhar (ex: ler um arquivo, abrir a câmera, dividir números).
+} catch (Exception e) {
+    // 2. O BLOCO DE DEFESA / RESGATE
+    // Este bloco SÓ É EXECUTADO se ocorrer algum erro dentro do bloco try.
+    // Aqui você trata a falha (exibe aviso, salva os dados) para manter o programa vivo.
+}
+
+```
+---
+
 *Documento gerado para consolidação de aprendizado em Engenharia de Visão Computacional e Arquitetura de Software.*
