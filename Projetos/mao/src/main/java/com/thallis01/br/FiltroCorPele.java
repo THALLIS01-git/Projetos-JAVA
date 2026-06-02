@@ -1,4 +1,4 @@
-package com.meuprojeto;
+package com.thallis01.br;
 
 import org.bytedeco.javacv.CanvasFrame;
 import org.bytedeco.javacv.Frame;

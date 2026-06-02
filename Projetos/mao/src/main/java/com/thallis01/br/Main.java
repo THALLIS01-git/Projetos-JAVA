@@ -1,4 +1,4 @@
-package com.meuprojeto;
+package com.thallis01.br;
 
 import org.bytedeco.javacv.CanvasFrame;
 import org.bytedeco.javacv.Frame;
@@ -11,11 +11,9 @@ import org.bytedeco.opencv.global.opencv_imgproc;
 import org.bytedeco.javacv.OpenCVFrameGrabber;
 import javax.swing.JFrame;
 
-public class App {
+public class Main {
     private static Process processoNavegador = null;
     private static boolean videoAberto = false; 
-    private static int framesSemMao = 0;
-    private static final int LIMITE_TOLERANCIA_FRAMES = 15;
     public static void main(String[] args) {
         OpenCVFrameGrabber grabber = new OpenCVFrameGrabber(0);
         try {
@@ -42,34 +40,24 @@ public class App {
                 mascaraPele.close();
                 regiaoAnalise.close();
                 if (pixelsPele > 8000) {
-                    framesSemMao = 0; 
-                    opencv_imgproc.rectangle(imagemMat, zonaAtivacao, new Scalar(0, 255, 0, 0), 3, 0, 0);
-                    opencv_imgproc.putText(imagemMat, "MAO DETECTADA", new org.bytedeco.opencv.opencv_core.Point(50, 40), 
-                    opencv_imgproc.FONT_HERSHEY_SIMPLEX, 0.7, new Scalar(0, 255, 0, 0), 2, 0, false);
-                    if (!videoAberto) {
-                        System.out.println("Mão detectada. Abrindo navegador...");
-                        videoAberto = true; 
-                        String comando = "cmd /c start chrome \"" + urlVideo + "\"";
-                        processoNavegador = Runtime.getRuntime().exec(comando);
-                    }    
+                opencv_imgproc.rectangle(imagemMat, zonaAtivacao, new Scalar(0, 255, 0, 0), 3, 0, 0);
+                opencv_imgproc.putText(imagemMat, "MAO DETECTADA", new org.bytedeco.opencv.opencv_core.Point(50, 40), 
+                opencv_imgproc.FONT_HERSHEY_SIMPLEX, 0.7, new Scalar(0, 255, 0, 0), 2, 0, false);
+                if (!videoAberto) {
+                System.out.println("Mão detectada");
+                videoAberto = true; 
+                String comando = "cmd /c start chrome \"" + urlVideo + "\"";
+                processoNavegador = Runtime.getRuntime().exec(comando);
+                }    
                 } else {
-                    framesSemMao++; 
-                    opencv_imgproc.rectangle(imagemMat, zonaAtivacao, new Scalar(0, 0, 255, 0), 2, 0, 0);                    
+                    opencv_imgproc.rectangle(imagemMat, zonaAtivacao, new Scalar(0, 0, 255, 0), 2, 0, 0);
+                    opencv_imgproc.putText(imagemMat, "✋", new org.bytedeco.opencv.opencv_core.Point(50, 40), 
+                    opencv_imgproc.FONT_HERSHEY_SIMPLEX, 0.7, new Scalar(0, 0, 255, 0), 2, 0, false);
                     if (videoAberto) {
-                        // Exibe mensagem de aviso visual/tempo restante na tela de debug
-                        int framesRestantes = LIMITE_TOLERANCIA_FRAMES - framesSemMao;
-                        String msgAviso = "AGUARDANDO (" + Math.max(0, framesRestantes) + "f)";
-                        opencv_imgproc.putText(imagemMat, msgAviso, new org.bytedeco.opencv.opencv_core.Point(50, 40), 
-                        opencv_imgproc.FONT_HERSHEY_SIMPLEX, 0.7, new Scalar(0, 0, 255, 0), 2, 0, false);
-                        if (framesSemMao >= LIMITE_TOLERANCIA_FRAMES) {
-                            System.out.println("Estabilidade confirmada: Mão removida por 15 frames. Fechando.");
-                            videoAberto = false;
-                            Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
-                            processoNavegador = null;    
-                        }
-                    } else {
-                        opencv_imgproc.putText(imagemMat, "AGUARDANDO MAO", new org.bytedeco.opencv.opencv_core.Point(50, 40), 
-                        opencv_imgproc.FONT_HERSHEY_SIMPLEX, 0.7, new Scalar(0, 0, 255, 0), 2, 0, false);
+                    System.out.println("Mão removida Fechando");
+                    videoAberto = false;
+                    Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
+                    processoNavegador = null;    
                     }
                 }
                 janela.showImage(converter.convert(imagemMat));
