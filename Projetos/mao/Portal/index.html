@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="icon 16x16" href="icon/favicon-16x16.png">
+    <link rel="icon" type="icon 32x32" href="icon/favicon-32x32.png">
+    <link href="style.css" rel="stylesheet">
+</head>
+<sr>
+    <section id="hero">
+        <div id="three-container" aria-hidden="true"></div>
+        <div class="hero-overlay">
+            <div class="phrase-container">
+                <span id="phrase" class="phrase">Agradecemos por utilizar o Sistema MAO!</span>
+            </div>
+        </div>
+        <div class="scroll-indicator" title="Rolar para baixo" onclick="document.getElementById('sites').scrollIntoView({behavior:'smooth'})">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+    <section id="sites">
+        <div class="section-header">
+            <h2 class="section-title">Explore os Sites</h2>
+            <p class="section-subtitle">Confira abaixo os sites que recomendamos para você</p>
+        </div>
+        <div class="cards-grid" id="cardsGrid">
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2026 <span>Portal</span> — Todos os direitos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+</sr>
+</html>

@@ -6,7 +6,7 @@ import java.net.InetAddress;
 
 public class Tv {
     public static void ligarTV() {
-        String macDaTV = "XXXXXXXXXXXXXXXX"; //  MAC TV
+        String macDaTV = "XXXXXXXXXXXXXXXX"; //  MAC da sua TV!
         String ipBroadcast = "XXXXXXXXXXXXXXXX"; // IP da rede
         int porta = 9; // Porta(Wake-on-LAN)
         try {
