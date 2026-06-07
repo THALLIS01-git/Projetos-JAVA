@@ -109,5 +109,18 @@ String ipBroadcast = "192.168.1.255";  // IP de Broadcast da sua sub-rede
 5. Ao inserir a mão novamente na região, o sistema computa a alternância de estado e encerra de forma limpa a instância do navegador através de chamadas nativas de terminal.
 
 ---
+### ### 🌐 O Portal Hub e o Uso de Marcas de Terceiros (Disclaimer)
+
+O **Portal Web** integrado ao ecossistema atua como um *Dashboard* ou *Hub* centralizado de produtividade, sendo disparado automaticamente assim que a automação por visão computacional valida o gesto do usuário. 
+
+A interface renderiza cartões interativos que contêm links de direcionamento e logotipos de plataformas e corporações globalmente reconhecidas (como *Google, YouTube, GitHub, LinkedIn, Instagram e Wikipedia*). Em relação a este conteúdo, estabelece-se que:
+
+* **Finalidade Exclusiva de Redirecionamento:** A inclusão dos logotipos e hiperlinks serve unicamente para conveniência e facilidade de navegação do usuário final, funcionando como atalhos rápidos para serviços web externos.
+* **Isenção de Vínculo Institucional:** O desenvolvimento, o autor deste projeto e o **Sistema Mao** não possuem qualquer tipo de filiação, parceria, patrocínio, endosso ou vínculo comercial/institucional com as marcas mencionadas ou com as empresas proprietárias delas.
+* **Ausência de Fins Lucrativos:** Este é um projeto estritamente acadêmico, de código aberto (*open-source*) e para fins de portfólio técnico. O sistema não monetiza, não exibe anúncios e não obtém lucros diretos ou indiretos através da exibição ou do clique em tais links.
+* **Propriedade Intelectual:** Todos os direitos autorais, marcas registradas e identidade visual dos logotipos utilizados pertencem integralmente às suas respectivas empresas e detentores legais.
+---
+
+---
 *Documento de Engenharia de Software gerado para consolidação de aprendizado em Arquitetura Core Java, Processamento Digital de Sinais (Visão Computacional), Sockets de Baixo Nível e Otimização Gráfica de Front-end.*
 ---
